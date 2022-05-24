@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct CoinListView: View {
+    
+    @StateObject private var vm = CoinListViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(vm.coins, id: \.id) { coin in
+                    CoinView(coin: coin)
+                        .listRowSeparator(.hidden)
+                }
+            }
+        }
     }
 }
 
