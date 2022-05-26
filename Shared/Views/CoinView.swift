@@ -1,8 +1,8 @@
 //
 //  CoinView.swift
-//  CryptoTracker (iOS)
+//  CryptoTracker
 //
-//  Created by Kamil Skrzyński on 24/05/2022.
+//  Created by Kamil Skrzyński on 25/05/2022.
 //
 
 import SwiftUI
@@ -24,22 +24,29 @@ struct CoinView: View {
                     Text(coin.name)
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.primary)
-                    Text(coin.symbol)
+                    Text(coin.symbol.uppercased())
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundColor(.gray)
-                    Spacer()
-                    Text("\(coin.currentPrice)")
+                }
+                Spacer()
+                VStack(alignment: .trailing) {
+                    
+                    Text(coin.formattedPrice)
+                        .font(.system(size: 15, weight: .semibold))
+                    Text(coin.formattedPriceChangePercentage24H)
+                        .font(.system(size: 13, weight: .regular))
+                        .foregroundColor(coin.formattedPriceChangePercentage24H.hasPrefix("-") ? .red : .green)
                 }
             }
         }
     }
 }
 
-struct CoinView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let coin = Coin(id: "", name: "", symbol: "", image: "", currentPrice: 0.0)
-        
-        CoinView(coin: coin)
-    }
-}
+//struct CoinView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        let coin = Coin(id: "", name: "Bitcoin", symbol: "BTC", image: "", currentPrice: 0.0)
+//        
+//        CoinView(coin: coin)
+//    }
+//}

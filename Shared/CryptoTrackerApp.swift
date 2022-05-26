@@ -13,5 +13,8 @@ struct CryptoTrackerApp: App {
         WindowGroup {
             MainView()
         }
+        #if os(macOS)
+        .windowStyle(.hiddenTitleBar)
+        #endif
     }
 }

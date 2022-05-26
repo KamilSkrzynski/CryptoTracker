@@ -1,8 +1,8 @@
 //
 //  CoinListView.swift
-//  CryptoTracker (iOS)
+//  CryptoTracker
 //
-//  Created by Kamil Skrzyński on 24/05/2022.
+//  Created by Kamil Skrzyński on 25/05/2022.
 //
 
 import SwiftUI
@@ -12,14 +12,23 @@ struct CoinListView: View {
     @StateObject private var vm = CoinListViewModel()
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(vm.coins, id: \.id) { coin in
+        List {
+            ForEach(vm.filteredCoins, id: \.id) { coin in
+                NavigationLink {
+                    CoinDetailView(coin: coin)
+                } label: {
                     CoinView(coin: coin)
+#if os(iOS)
                         .listRowSeparator(.hidden)
+#endif
                 }
             }
         }
+        .listStyle(.plain)
+        .searchable(text: $vm.searchText)
+#if os(macOS)
+        .frame(minWidth: 300)
+#endif
     }
 }
 
