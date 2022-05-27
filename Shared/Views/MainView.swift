@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    
     var body: some View {
         NavigationView {
             VStack {
-//                SearchBarView()
-//                    .padding(.bottom, 10)
                 CoinListView()
-//#if os(macOS)
-//                    .frame(minWidth: 400, minHeight: 400)
-//                #endif
             }
             .navigationTitle("Coins")
         }
+        .tint(.primary)
     }
 }
 

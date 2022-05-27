@@ -13,13 +13,13 @@ struct CoinView: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(spacing: 10) {
                 AsyncImage(url: URL(string: coin.image)) { image in
                     image.resizable()
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 50, height: 50)
+                .frame(width: 35, height: 35)
                 VStack(alignment: .leading) {
                     Text(coin.name)
                         .font(.system(size: 18, weight: .bold))
@@ -39,6 +39,9 @@ struct CoinView: View {
                 }
             }
         }
+        .frame(height: 60)
+        .padding(.horizontal)
+        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
     }
 }
 

@@ -11,6 +11,9 @@ import Combine
 final class CoinListViewModel: ObservableObject {
     
     @Published var coins = [Coin]()
+    @Published var isLoading: Bool = false
+    @Published var selectedCoin: Coin? = nil
+
     private let cryptoService = CryptoService()
     private var cancellables: AnyCancellable?
     
@@ -34,10 +37,12 @@ final class CoinListViewModel: ObservableObject {
     
     // MARK: Fetching
     func fetchCoins() {
+        isLoading = true
         cancellables = cryptoService
             .fetchCoins()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in
-                
+                self.isLoading = false
             }, receiveValue: { coins in
                 DispatchQueue.main.async {
                     self.coins = coins

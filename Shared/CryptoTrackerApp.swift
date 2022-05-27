@@ -12,9 +12,12 @@ struct CryptoTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+#if os(macOS)
+                .frame(maxWidth: 1200, maxHeight: 600)
+#endif
         }
-        #if os(macOS)
+#if os(macOS)
         .windowStyle(.hiddenTitleBar)
-        #endif
+#endif
     }
 }

@@ -12,20 +12,30 @@ struct CoinListView: View {
     @StateObject private var vm = CoinListViewModel()
     
     var body: some View {
-        List {
-            ForEach(vm.filteredCoins, id: \.id) { coin in
-                NavigationLink {
-                    CoinDetailView(coin: coin)
-                } label: {
-                    CoinView(coin: coin)
+        VStack {
+            if vm.isLoading {
+                ProgressView("Getting data, please wait...")
+            } else {
+                List {
+                    ForEach(vm.filteredCoins, id: \.id) { coin in
+                        Button {
+                            vm.selectedCoin = coin
+                        } label: {
+                            CoinView(coin: coin)
+                        }.buttonStyle(.plain)
+                        
 #if os(iOS)
-                        .listRowSeparator(.hidden)
+                            .listRowSeparator(.hidden)
 #endif
+                    }
                 }
+                .listStyle(.plain)
+                .searchable(text: $vm.searchText)
+                .disableAutocorrection(true)
             }
+        }.sheet(item: $vm.selectedCoin) { item in
+            CoinDetailView(coin: item)
         }
-        .listStyle(.plain)
-        .searchable(text: $vm.searchText)
 #if os(macOS)
         .frame(minWidth: 300)
 #endif

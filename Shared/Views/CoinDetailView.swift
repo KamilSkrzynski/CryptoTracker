@@ -7,12 +7,29 @@
 
 import SwiftUI
 
+enum PriceRange {
+    case day, week, twoWeeks, month, threeMonths, sixMonths, year
+}
+
 struct CoinDetailView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    @StateObject private var vm = CoinDetailViewModel()
     let coin: Coin
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
+            HStack {
+                Spacer()
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding()
+            
             HStack {
                 AsyncImage(url: URL(string: coin.image)) { image in
                     image.resizable()
@@ -21,8 +38,9 @@ struct CoinDetailView: View {
                 }
                 .frame(width: 50, height: 50)
                 VStack(alignment: .leading) {
+                    
                     Text(coin.name)
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.primary)
                     Text(coin.symbol.uppercased())
                         .font(.system(size: 20, weight: .semibold))
@@ -30,58 +48,56 @@ struct CoinDetailView: View {
                 }
                 Spacer()
             }
-            HStack {
+            .padding()
+            
+            VStack(alignment: .leading, spacing: 10) {
+                
                 VStack(alignment: .leading) {
                     Text("Current price")
                         .foregroundColor(.gray)
                         .font(.system(size: 15, weight: .bold))
-                    VStack(alignment: .leading) {
+                    HStack {
                         Text(coin.formattedPrice)
                             .foregroundColor(.primary)
                             .font(.system(size: 17, weight: .bold))
-                        Text(coin.formattedPriceChangePercentage24H)
+                        Text("\(coin.formattedPriceChangePercentage24H) (24h)")
                             .foregroundColor(coin.formattedPriceChangePercentage24H.hasPrefix("-") ? .red : .green)
                             .font(.system(size: 13, weight: .bold))
                     }
                 }
-                .frame(maxWidth: .infinity)
-                .frame(height: 80)
-                .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.1)))
                 
                 VStack(alignment: .leading) {
-                    Text("All time high (ATH)")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 15, weight: .bold))
+                    HStack {
+                        Text("All time high (ATH)")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 15, weight: .bold))
+                        Text("(\(coin.formattedAthDate.formatted(.dateTime.year().month().day())))")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 15, weight: .semibold))
+                    }
                     Text(coin.formattedAth)
                         .foregroundColor(.primary)
                         .font(.system(size: 17, weight: .bold))
                 }
-                .frame(maxWidth: .infinity)
-                .frame(height: 80)
-                .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.1)))
+                
+                VStack(alignment: .leading) {
+                    Text("Market cap")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 15, weight: .bold))
+                    Text(coin.formattedMarketCap)
+                        .foregroundColor(.primary)
+                        .font(.system(size: 17, weight: .bold))
+                }
             }
-            .frame(maxWidth: .infinity)
-            VStack(alignment: .leading) {
-                Text("Market cap")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 15, weight: .bold))
-                Text(coin.formattedMarketCap)
-                    .foregroundColor(.primary)
-                    .font(.system(size: 17, weight: .bold))
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 80)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.1)))
+            
+            CoinChartView(historicalPrice: coin.sparklineIn7D)
             .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray.opacity(0.1)))
             Spacer()
         }
+        .navigationTitle(coin.name)
         .padding(.horizontal)
     }
 }
-
-//struct CoinDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let coin = Coin(id: "", name: "Bitcoin", symbol: "BTC", image: "", currentPrice: 0.0, priceChangePercentage24h: 0.0, ath: 0.0, marketCap: 0.0)
-//
-//        CoinView(coin: coin)
-//    }
-//}

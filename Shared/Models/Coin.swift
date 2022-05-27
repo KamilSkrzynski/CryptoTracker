@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct Coin: Codable {
+struct Coin: Identifiable, Codable {
     
-    let id, name, symbol, image: String
+    let id, name, symbol, image, athDate: String
     let currentPrice, priceChangePercentage24H, marketCap, ath: Double
+    let sparklineIn7D: Price
     
     var formattedPrice: String {
         return String(currentPrice).currencyFormatter()
@@ -28,6 +29,14 @@ struct Coin: Codable {
         return String(priceChangePercentage24H).percentageFormatter()
     }
     
+    var formattedAthDate: Date {
+        
+        return athDate.toDate() ?? Date()
+    }
+    
 }
 
-
+struct Price: Codable, Hashable {
+    
+    let price: [Double]
+}
