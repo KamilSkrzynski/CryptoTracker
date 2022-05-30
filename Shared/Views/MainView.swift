@@ -10,13 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     var body: some View {
-        NavigationView {
-            VStack {
-                CoinListView()
-            }
-            .navigationTitle("Coins")
-        }
-        .tint(.primary)
+        CoinListView()
     }
 }
 

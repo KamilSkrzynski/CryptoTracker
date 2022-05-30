@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CoinChartView: View {
     
-    @StateObject private var vm = CoinDetailViewModel()
     @State private var tappedData: Double?
     
     let historicalPrice: Price
@@ -35,7 +34,6 @@ struct CoinChartView: View {
                                 .onTapGesture {
                                     withAnimation {
                                         self.tappedData = data
-                                        print(data)
                                     }
                                 }
                         }

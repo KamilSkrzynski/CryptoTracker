@@ -7,14 +7,10 @@
 
 import SwiftUI
 
-enum PriceRange {
-    case day, week, twoWeeks, month, threeMonths, sixMonths, year
-}
 
 struct CoinDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var vm = CoinDetailViewModel()
     let coin: Coin
     
     var body: some View {
@@ -28,7 +24,7 @@ struct CoinDetailView: View {
                         .foregroundColor(.gray)
                 }
             }
-            .padding()
+            .padding(.vertical)
             
             HStack {
                 AsyncImage(url: URL(string: coin.image)) { image in
@@ -40,10 +36,10 @@ struct CoinDetailView: View {
                 VStack(alignment: .leading) {
                     
                     Text(coin.name)
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 21, weight: .bold))
                         .foregroundColor(.primary)
                     Text(coin.symbol.uppercased())
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 19, weight: .semibold))
                         .foregroundColor(.gray)
                 }
                 Spacer()

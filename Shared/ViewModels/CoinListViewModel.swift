@@ -13,6 +13,7 @@ final class CoinListViewModel: ObservableObject {
     @Published var coins = [Coin]()
     @Published var isLoading: Bool = false
     @Published var selectedCoin: Coin? = nil
+    @Published var infoSelected: Bool = false
 
     private let cryptoService = CryptoService()
     private var cancellables: AnyCancellable?

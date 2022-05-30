@@ -27,10 +27,14 @@
 		375CFA1E283E395200B80FA9 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA1C283E395200B80FA9 /* CoinView.swift */; };
 		375CFA47283E404800B80FA9 /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA46283E404800B80FA9 /* CoinDetailView.swift */; };
 		375CFA48283E404800B80FA9 /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA46283E404800B80FA9 /* CoinDetailView.swift */; };
-		375CFA532840B45400B80FA9 /* CoinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA522840B45400B80FA9 /* CoinDetailViewModel.swift */; };
-		375CFA542840B45400B80FA9 /* CoinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA522840B45400B80FA9 /* CoinDetailViewModel.swift */; };
 		375CFA592840B78400B80FA9 /* CoinChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA582840B78400B80FA9 /* CoinChartView.swift */; };
 		375CFA5A2840B78400B80FA9 /* CoinChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA582840B78400B80FA9 /* CoinChartView.swift */; };
+		375CFA5C28410D9700B80FA9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA5B28410D9700B80FA9 /* InfoView.swift */; };
+		375CFA5D28410D9700B80FA9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA5B28410D9700B80FA9 /* InfoView.swift */; };
+		375CFA5F28410ED000B80FA9 /* GlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA5E28410ED000B80FA9 /* GlobalInfo.swift */; };
+		375CFA6028410ED000B80FA9 /* GlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA5E28410ED000B80FA9 /* GlobalInfo.swift */; };
+		375CFA622841102300B80FA9 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA612841102300B80FA9 /* InfoViewModel.swift */; };
+		375CFA632841102300B80FA9 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA612841102300B80FA9 /* InfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +51,10 @@
 		375CFA19283E393F00B80FA9 /* CoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListView.swift; sourceTree = "<group>"; };
 		375CFA1C283E395200B80FA9 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
 		375CFA46283E404800B80FA9 /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
-		375CFA522840B45400B80FA9 /* CoinDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewModel.swift; sourceTree = "<group>"; };
 		375CFA582840B78400B80FA9 /* CoinChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChartView.swift; sourceTree = "<group>"; };
+		375CFA5B28410D9700B80FA9 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		375CFA5E28410ED000B80FA9 /* GlobalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalInfo.swift; sourceTree = "<group>"; };
+		375CFA612841102300B80FA9 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				375CF9FE283D42F700B80FA9 /* Coin.swift */,
+				375CFA5E28410ED000B80FA9 /* GlobalInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 				375CFA1C283E395200B80FA9 /* CoinView.swift */,
 				375CFA46283E404800B80FA9 /* CoinDetailView.swift */,
 				375CFA582840B78400B80FA9 /* CoinChartView.swift */,
+				375CFA5B28410D9700B80FA9 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				375CFA16283E391A00B80FA9 /* CoinListViewModel.swift */,
-				375CFA522840B45400B80FA9 /* CoinDetailViewModel.swift */,
+				375CFA612841102300B80FA9 /* InfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -252,16 +260,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375CFA622841102300B80FA9 /* InfoViewModel.swift in Sources */,
 				375CFA02283D445A00B80FA9 /* CryptoService.swift in Sources */,
 				375CF9FF283D42F800B80FA9 /* Coin.swift in Sources */,
 				375CFA17283E391A00B80FA9 /* CoinListViewModel.swift in Sources */,
 				375CF9EF283D429200B80FA9 /* MainView.swift in Sources */,
+				375CFA5C28410D9700B80FA9 /* InfoView.swift in Sources */,
 				375CFA1A283E393F00B80FA9 /* CoinListView.swift in Sources */,
 				375CFA47283E404800B80FA9 /* CoinDetailView.swift in Sources */,
 				375CFA1D283E395200B80FA9 /* CoinView.swift in Sources */,
 				375CFA0D283E207D00B80FA9 /* String+Extensions.swift in Sources */,
 				375CFA592840B78400B80FA9 /* CoinChartView.swift in Sources */,
-				375CFA532840B45400B80FA9 /* CoinDetailViewModel.swift in Sources */,
+				375CFA5F28410ED000B80FA9 /* GlobalInfo.swift in Sources */,
 				375CF9ED283D429200B80FA9 /* CryptoTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,16 +280,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375CFA632841102300B80FA9 /* InfoViewModel.swift in Sources */,
 				375CFA13283E21E800B80FA9 /* CryptoService.swift in Sources */,
 				375CF9F0283D429200B80FA9 /* MainView.swift in Sources */,
 				375CFA12283E21E600B80FA9 /* String+Extensions.swift in Sources */,
 				375CFA18283E391A00B80FA9 /* CoinListViewModel.swift in Sources */,
+				375CFA5D28410D9700B80FA9 /* InfoView.swift in Sources */,
 				375CFA1B283E393F00B80FA9 /* CoinListView.swift in Sources */,
 				375CFA48283E404800B80FA9 /* CoinDetailView.swift in Sources */,
 				375CFA1E283E395200B80FA9 /* CoinView.swift in Sources */,
 				375CF9EE283D429200B80FA9 /* CryptoTrackerApp.swift in Sources */,
 				375CFA5A2840B78400B80FA9 /* CoinChartView.swift in Sources */,
-				375CFA542840B45400B80FA9 /* CoinDetailViewModel.swift in Sources */,
+				375CFA6028410ED000B80FA9 /* GlobalInfo.swift in Sources */,
 				375CFA10283E21DD00B80FA9 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
