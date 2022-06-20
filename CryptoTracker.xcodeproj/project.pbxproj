@@ -21,7 +21,6 @@
 		375CFA13283E21E800B80FA9 /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA01283D445A00B80FA9 /* CryptoService.swift */; };
 		375CFA17283E391A00B80FA9 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA16283E391A00B80FA9 /* CoinListViewModel.swift */; };
 		375CFA18283E391A00B80FA9 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA16283E391A00B80FA9 /* CoinListViewModel.swift */; };
-		375CFA1A283E393F00B80FA9 /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA19283E393F00B80FA9 /* CoinListView.swift */; };
 		375CFA1B283E393F00B80FA9 /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA19283E393F00B80FA9 /* CoinListView.swift */; };
 		375CFA1D283E395200B80FA9 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA1C283E395200B80FA9 /* CoinView.swift */; };
 		375CFA1E283E395200B80FA9 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA1C283E395200B80FA9 /* CoinView.swift */; };
@@ -35,6 +34,7 @@
 		375CFA6028410ED000B80FA9 /* GlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA5E28410ED000B80FA9 /* GlobalInfo.swift */; };
 		375CFA622841102300B80FA9 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA612841102300B80FA9 /* InfoViewModel.swift */; };
 		375CFA632841102300B80FA9 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA612841102300B80FA9 /* InfoViewModel.swift */; };
+		375CFA642844E6BB00B80FA9 /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375CFA19283E393F00B80FA9 /* CoinListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -264,9 +264,9 @@
 				375CFA02283D445A00B80FA9 /* CryptoService.swift in Sources */,
 				375CF9FF283D42F800B80FA9 /* Coin.swift in Sources */,
 				375CFA17283E391A00B80FA9 /* CoinListViewModel.swift in Sources */,
+				375CFA642844E6BB00B80FA9 /* CoinListView.swift in Sources */,
 				375CF9EF283D429200B80FA9 /* MainView.swift in Sources */,
 				375CFA5C28410D9700B80FA9 /* InfoView.swift in Sources */,
-				375CFA1A283E393F00B80FA9 /* CoinListView.swift in Sources */,
 				375CFA47283E404800B80FA9 /* CoinDetailView.swift in Sources */,
 				375CFA1D283E395200B80FA9 /* CoinView.swift in Sources */,
 				375CFA0D283E207D00B80FA9 /* String+Extensions.swift in Sources */,

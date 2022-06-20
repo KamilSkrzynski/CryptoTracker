@@ -10,7 +10,12 @@ import SwiftUI
 struct MainView: View {
     
     var body: some View {
-        CoinListView()
+        NavigationView {
+            CoinListView()
+            #if os(macOS)
+            Text("Info")
+            #endif
+        }
     }
 }
 

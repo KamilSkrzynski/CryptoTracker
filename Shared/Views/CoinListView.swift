@@ -12,48 +12,46 @@ struct CoinListView: View {
     @StateObject private var vm = CoinListViewModel()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if vm.isLoading {
-                    ProgressView("Getting data, please wait...")
-                } else {
-                    List {
-                        ForEach(vm.filteredCoins, id: \.id) { coin in
-                            Button {
-                                vm.selectedCoin = coin
-                            } label: {
-                                CoinView(coin: coin)
-                            }.buttonStyle(.plain)
-                            
+        VStack {
+            if vm.isLoading {
+                ProgressView("Getting data, please wait...")
+            } else {
+                List {
+                    ForEach(vm.filteredCoins, id: \.id) { coin in
+                        Button {
+                            vm.selectedCoin = coin
+                        } label: {
+                            CoinView(coin: coin)
+                        }.buttonStyle(.plain)
+                        
 #if os(iOS)
-                                .listRowSeparator(.hidden)
+                            .listRowSeparator(.hidden)
 #endif
-                        }
                     }
-                    .listStyle(.plain)
-                    .searchable(text: $vm.searchText)
-                    .disableAutocorrection(true)
                 }
+                .listStyle(.plain)
+                .searchable(text: $vm.searchText)
+                .disableAutocorrection(true)
             }
-            .sheet(item: $vm.selectedCoin) { item in
-                CoinDetailView(coin: item)
-            }
-#if os(macOS)
-            .frame(minWidth: 300)
-#endif
-            .navigationTitle("Coins")
-#if os(iOS)
-            .navigationBarItems(trailing: Button {
-                vm.infoSelected.toggle()
-            } label: {
-                Image(systemName: "info.circle.fill")
-                    .foregroundColor(.gray)
-            }.sheet(isPresented: $vm.infoSelected) {
-                InfoView()
-            }
-            )
-#endif
         }
+#if os(macOS)
+        .frame(minWidth: 300)
+#endif
+#if os(iOS)
+        .sheet(item: $vm.selectedCoin) { item in
+        CoinDetailView(coin: item)
+        }
+        .navigationTitle("Coins")
+        .navigationBarItems(trailing: Button {
+            vm.infoSelected.toggle()
+        } label: {
+            Image(systemName: "info.circle.fill")
+                .foregroundColor(.primary)
+        }.sheet(isPresented: $vm.infoSelected) {
+            InfoView()
+        }
+        )
+#endif
     }
 }
 
